@@ -20,3 +20,16 @@
   with_items:
       - google-chrome-stable
       - jfsutils
+
+- name: Set git email
+  git_config:
+      scope: global
+      name: user.email
+      value: robert@the-playground.dk
+
+- name: Set git user name
+  git_config:
+      scope: global
+      name: user.name
+      value: Robert Larsen
+
