@@ -1,0 +1,22 @@
+---
+- name: Add Googles apt signing key
+  become: true
+  apt_key:
+      url: https://dl.google.com/linux/linux_signing_key.pub
+      state: present
+
+- name: Add Google apt repository
+  become: true
+  apt_repository:
+      repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+      state: present
+
+- name: Install packages
+  become: true
+  apt:
+      name: "{{item}}"
+      state: present
+      update_cache: true
+  with_items:
+      - google-chrome-stable
+      - jfsutils
