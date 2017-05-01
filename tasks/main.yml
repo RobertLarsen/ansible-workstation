@@ -28,6 +28,7 @@
       - virtualbox-5.1
       - google-chrome-stable
       - jfsutils
+      - ssh-server
 
 - name: Install vagrant
   become: true
