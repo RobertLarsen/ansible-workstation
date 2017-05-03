@@ -29,6 +29,7 @@
       - google-chrome-stable
       - jfsutils
       - ssh-server
+      - cryptsetup-bin
 
 - name: Install vagrant
   become: true
