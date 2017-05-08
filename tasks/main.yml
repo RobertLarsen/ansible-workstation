@@ -30,6 +30,7 @@
       - jfsutils
       - ssh-server
       - cryptsetup-bin
+      - wipe
 
 - name: Install vagrant
   become: true
@@ -48,3 +49,10 @@
       name: user.name
       value: Robert Larsen
 
+- name: Install local setup
+  git: repo=git@gogs.the-playground.dk:robert/Workstation.git dest=~/.bin
+
+- name: Load local bash settings
+  lineinfile:
+      dest: ~/.bashrc
+      line: ". ~/.bin/bash_settings"
