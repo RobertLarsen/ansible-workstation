@@ -7,6 +7,7 @@
   with_items:
       - "https://dl.google.com/linux/linux_signing_key.pub"
       - "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
+      - "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
 
 - name: Add apt repositories
   become: true
@@ -16,6 +17,7 @@
   with_items:
       - "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
       - "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib"
+      - "deb [arch=amd64] https://deb.nodesource.com/node_6.x {{ansible_distribution_release}} main"
 
 - name: Install packages
   become: true
