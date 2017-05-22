@@ -39,6 +39,40 @@
   apt:
       deb: "https://releases.hashicorp.com/vagrant/1.9.4/vagrant_1.9.4_x86_64.deb"
 
+- name: Set ssh dir permissions
+  file:
+      path: "{{ansible_user_dir}}/.ssh"
+      state: directory
+      mode: 0700
+
+- name: ssh client config
+  blockinfile:
+      path: "{{ansible_user_dir}}/.ssh/config"
+      create: True
+      block: |
+        Host gogs.the-playground.dk
+            Port 10022
+            User git
+
+- name: Know gogs.the-playground.dk
+  lineinfile:
+      path: "{{ansible_user_dir}}/.ssh/known_hosts"
+      create: True
+      line: "{{item}}"
+  with_items:
+      - "|1|j5gochmZUabs7pVVoFX/Z61YsRg=|fgXFP+mcghMBT62xQ1a5WwKOw/U= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJw9lbWEFuKOmehtLzcP+gN2V+2fr/jwkSE6Mn+azUdK7reKm8hdvfOEiwC27zOhXysj/+TGQcOrjD7F1Lvu2JQ="
+      - "|1|+5ngtb2l4HJLKgUGLuoIayHj11M=|b/9ZFQHewFtoPG5UVDQRyw3L9Jg= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJw9lbWEFuKOmehtLzcP+gN2V+2fr/jwkSE6Mn+azUdK7reKm8hdvfOEiwC27zOhXysj/+TGQcOrjD7F1Lvu2JQ="
+
+- name: Set ssh file permissions
+  file:
+      path: "{{ansible_user_dir}}/.ssh/{{item}}"
+      state: file
+      mode: 0600
+  with_items:
+      - config
+      - known_hosts
+      - id_rsa
+
 - name: Set git email
   git_config:
       scope: global
