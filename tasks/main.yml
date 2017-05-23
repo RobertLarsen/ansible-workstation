@@ -56,7 +56,7 @@
 
 - name: Know gogs.the-playground.dk
   lineinfile:
-      path: "{{ansible_user_dir}}/.ssh/known_hosts"
+      dest: "{{ansible_user_dir}}/.ssh/known_hosts"
       create: True
       line: "{{item}}"
   with_items:
