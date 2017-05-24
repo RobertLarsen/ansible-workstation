@@ -33,6 +33,7 @@
       - openssh-server
       - cryptsetup-bin
       - wipe
+      - graphviz
 
 - name: Install vagrant
   become: true
