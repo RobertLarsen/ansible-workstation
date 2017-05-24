@@ -48,7 +48,7 @@
 
 - name: ssh client config
   blockinfile:
-      path: "{{ansible_user_dir}}/.ssh/config"
+      dest: "{{ansible_user_dir}}/.ssh/config"
       create: True
       block: |
         Host gogs.the-playground.dk
@@ -57,7 +57,7 @@
 
 - name: Know gogs.the-playground.dk
   lineinfile:
-      path: "{{ansible_user_dir}}/.ssh/known_hosts"
+      dest: "{{ansible_user_dir}}/.ssh/known_hosts"
       create: True
       line: "{{item}}"
   with_items:
