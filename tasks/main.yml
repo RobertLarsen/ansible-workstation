@@ -8,6 +8,7 @@
       - "https://dl.google.com/linux/linux_signing_key.pub"
       - "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
       - "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+      - "https://keybase.io/hashicorp/pgp_keys.asc"
 
 - name: Add apt repositories
   become: true
@@ -38,7 +39,7 @@
 - name: Install vagrant
   become: true
   apt:
-      deb: "https://releases.hashicorp.com/vagrant/1.9.4/vagrant_1.9.4_x86_64.deb"
+      deb: "https://releases.hashicorp.com/vagrant/1.9.5/vagrant_1.9.5_x86_64.deb"
 
 - name: Set ssh dir permissions
   file:
