@@ -35,6 +35,7 @@
       - cryptsetup-bin
       - wipe
       - graphviz
+      - ddd
 
 - name: Install vagrant
   become: true
