@@ -36,6 +36,7 @@
       - wipe
       - graphviz
       - ddd
+      - doxygen
 
 - name: Install vagrant
   become: true
