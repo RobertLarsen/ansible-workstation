@@ -89,10 +89,12 @@
       name: user.name
       value: Robert Larsen
 
-  #- name: Install local setup
-  #  git: repo=git@gogs.the-playground.dk:robert/Workstation.git dest=~/.bin
-  #
-  #- name: Load local bash settings
-  #  lineinfile:
-  #      dest: ~/.bashrc
-  #      line: ". ~/.bin/bash_settings"
+- name: Have my dotfiles
+  git: 
+      repo: https://github.com/RobertLarsen/dotfiles.git
+      dest: "{{local_repositories_dir}}/dotfiles"
+
+- name: Load local bash settings
+  lineinfile:
+      dest: "{{ansible_user_dir}}/.bashrc"
+      line: ". {{local_repositories_dir}}/dotfiles/bashrc"
