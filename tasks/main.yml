@@ -37,6 +37,7 @@
       - graphviz
       - ddd
       - doxygen
+      - winehq-devel
 
 - name: Install vagrant
   become: true
