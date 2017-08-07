@@ -9,6 +9,7 @@
       - "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
       - "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
       - "https://keybase.io/hashicorp/pgp_keys.asc"
+      - "https://dl.winehq.org/wine-builds/Release.key"
 
 - name: Add apt repositories
   become: true
@@ -19,6 +20,7 @@
       - "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
       - "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib"
       - "deb [arch=amd64] https://deb.nodesource.com/node_6.x {{ansible_distribution_release}} main"
+      - "deb [arch=amd64] https://dl.winehq.org/wine-builds/ubuntu/ {{ansible_distribution_release}} main"
 
 - name: Install packages
   become: true
@@ -37,7 +39,7 @@
       - graphviz
       - ddd
       - doxygen
-      - winehq-devel
+      - winehq-stable
 
 - name: Install vagrant
   become: true
