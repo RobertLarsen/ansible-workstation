@@ -20,7 +20,7 @@
       - "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
       - "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib"
       - "deb [arch=amd64] https://deb.nodesource.com/node_6.x {{ansible_distribution_release}} main"
-      - "deb [arch=amd64] https://dl.winehq.org/wine-builds/ubuntu/ {{ansible_distribution_release}} main"
+      - "deb https://dl.winehq.org/wine-builds/ubuntu/ {{ansible_distribution_release}} main"
 
 - name: Check if i386 is enabled
   shell: dpkg --print-foreign-architectures | grep i386
