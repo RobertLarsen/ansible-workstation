@@ -111,3 +111,11 @@
   lineinfile:
       dest: "{{ansible_user_dir}}/.bashrc"
       line: ". {{local_repositories_dir}}/dotfiles/bashrc"
+
+- name: Check screen lock shortcut
+  command: gsettings get org.gnome.settings-daemon.plugins.media-keys screensaver
+  register: screenlock
+
+- name: Lock screen with <Shift><Alt>l
+  command: gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver '<Shift><Alt>l'
+  when: not screenlock.stdout == "'<Shift><Alt>l'"
