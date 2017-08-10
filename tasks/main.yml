@@ -50,6 +50,7 @@
       - ddd
       - doxygen
       - winehq-stable
+      - gcc-mingw-w64-i686
 
 - name: Install vagrant
   become: true
