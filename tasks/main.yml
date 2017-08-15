@@ -120,3 +120,6 @@
 - name: Lock screen with <Shift><Alt>l
   command: gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver '<Shift><Alt>l'
   when: not screenlock.stdout == "'<Shift><Alt>l'"
+
+- name: Install gdb and plugins
+  include: gdb.yml

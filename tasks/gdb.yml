@@ -1,0 +1,43 @@
+---
+- name: Install packages
+  become: true
+  apt: name="{{item}}"
+  with_items:
+      - gdb
+      - python3-pip
+
+- name: Install python packages
+  become: true
+  pip:
+      executable: pip3
+      name: "{{item}}"
+  with_items:
+      - capstone
+      - unicorn
+      - keystone-engine
+      - ropgadget
+      - ropper
+      - retdec-python
+
+- name: Fix capstone shared library
+  become: true
+  file:
+      path: /usr/local/lib/python3.5/dist-packages/capstone/libcapstone.so
+      src: /usr/local/lib/python3.5/dist-packages/usr/lib/python3/dist-packages/capstone/libcapstone.so
+      state: link
+
+- name: Clone gef
+  git:
+      repo: https://github.com/hugsy/gef.git
+      dest: "{{ansible_user_dir}}/.repositories/gef"
+
+- name: Configure .gdbinit
+  lineinfile:
+      create: true
+      path: "{{ansible_user_dir}}/.gdbinit"
+      line: "{{item}}"
+  with_items:
+      - set follow-fork-mode child
+      - set disassembly-flavor intel
+      - set auto-load safe-path /
+      - source ~/.repositories/gef/gef.py
