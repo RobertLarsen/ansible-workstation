@@ -51,6 +51,13 @@
       - doxygen
       - winehq-stable
       - gcc-mingw-w64-i686
+      - binutils-mips-linux-gnu
+      - binutils-arm-linux-gnueabi
+      - libc6-dev-i386
+      - execstack
+      - nasm
+      - curl
+      - libcapstone3
 
 - name: Install vagrant
   become: true
@@ -120,6 +127,10 @@
 - name: Lock screen with <Shift><Alt>l
   command: gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver '<Shift><Alt>l'
   when: not screenlock.stdout == "'<Shift><Alt>l'"
+
+- name: Install pwntools
+  become: true
+  pip: name=pwntools
 
 - name: Install gdb and plugins
   include: gdb.yml
