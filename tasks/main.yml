@@ -58,6 +58,7 @@
       - nasm
       - curl
       - libcapstone3
+      - afl
 
 - name: Install vagrant
   become: true
