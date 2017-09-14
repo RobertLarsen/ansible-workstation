@@ -59,6 +59,7 @@
       - curl
       - libcapstone3
       - afl
+      - libfuzzer-4.0-dev
 
 - name: Install vagrant
   become: true
