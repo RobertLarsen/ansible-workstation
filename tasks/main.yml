@@ -55,6 +55,7 @@
       - binutils-arm-linux-gnueabi
       - libc6-dev-i386
       - execstack
+      - nodejs
       - nasm
       - curl
       - libcapstone3
