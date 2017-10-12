@@ -39,6 +39,7 @@
       state: present
       update_cache: true
   with_items:
+      - whois
       - dkms
       - virtualbox-5.1
       - google-chrome-stable
