@@ -62,6 +62,7 @@
       - libcapstone3
       - afl
       - libfuzzer-4.0-dev
+      - wireshark
 
 - name: Install vagrant
   become: true
