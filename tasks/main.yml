@@ -63,6 +63,7 @@
       - afl
       - libfuzzer-4.0-dev
       - wireshark
+      - kazam
 
 - name: Install vagrant
   become: true
@@ -139,3 +140,15 @@
 
 - name: Install gdb and plugins
   include: gdb.yml
+
+- name: Have useful docker images
+  docker_image:
+      name: "{{item}}"
+  with_items:
+      - webdevops/php-nginx
+      - ubuntu:16.04
+      - redis
+      - mysql
+      - mongo
+      - influxdb
+      - grafana/grafana
