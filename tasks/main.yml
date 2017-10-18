@@ -64,6 +64,7 @@
       - libfuzzer-4.0-dev
       - wireshark
       - kazam
+      - handbrake
 
 - name: Install vagrant
   become: true
