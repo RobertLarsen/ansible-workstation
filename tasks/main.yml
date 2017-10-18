@@ -65,6 +65,7 @@
       - wireshark
       - kazam
       - handbrake
+      - gimp
 
 - name: Install vagrant
   become: true
