@@ -66,6 +66,7 @@
       - kazam
       - handbrake
       - gimp
+      - inkscape
 
 - name: Install vagrant
   become: true
