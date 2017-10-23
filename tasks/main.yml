@@ -67,6 +67,7 @@
       - handbrake
       - gimp
       - inkscape
+      - gparted
 
 - name: Install vagrant
   become: true
