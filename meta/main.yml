@@ -8,3 +8,6 @@ galaxy_info:
   - name: Ubuntu
     versions:
     - yakkety
+dependencies:
+  - RobertLarsen.vim
+  - RobertLarsen.docker
