@@ -146,6 +146,7 @@
   include: gdb.yml
 
 - name: Have useful docker images
+  become: true
   docker_image:
       name: "{{item}}"
   with_items:
