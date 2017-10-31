@@ -69,6 +69,7 @@
       - inkscape
       - gparted
       - meld
+      - jq
 
 - name: Install vagrant
   become: true
