@@ -70,6 +70,20 @@
       - gparted
       - meld
       - jq
+      - rubygems
+      - ruby-dev
+      - wkhtmltopdf
+
+- name: Find Ruby Gem path
+  become: true
+  command: ruby -e 'puts Gem.user_dir'
+  register: rubygem
+
+- name: Install gimli
+  become: true
+  environment:
+      PATH: "{{ansible_env.PATH}}:{{rubygem.stdout}}/bin"
+  gem: name=gimli
 
 - name: Install vagrant
   become: true
