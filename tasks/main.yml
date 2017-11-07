@@ -83,7 +83,9 @@
   become: true
   environment:
       PATH: "{{ansible_env.PATH}}:{{rubygem.stdout}}/bin"
-  gem: name=gimli
+  gem:
+      name: gimli
+      user_install: no
 
 - name: Install vagrant
   become: true
