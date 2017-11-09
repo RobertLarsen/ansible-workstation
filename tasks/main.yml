@@ -76,6 +76,7 @@
       - ruby-dev
       - wkhtmltopdf
       - powershell
+      - php7.0-cli
 
 - name: Find Ruby Gem path
   become: true
