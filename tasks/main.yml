@@ -161,9 +161,16 @@
   command: gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver '<Shift><Alt>l'
   when: not screenlock.stdout == "'<Shift><Alt>l'"
 
-- name: Install pwntools
+- name: Install python packages
   become: true
-  pip: name=pwntools
+  pip: "name={{item}}"
+  with_items:
+      - pwntools
+      - cstruct
+      - requests
+      - Flask
+      - redis
+      - pymongo
 
 - name: Install gdb and plugins
   include: gdb.yml
@@ -181,3 +188,4 @@
       - influxdb
       - grafana/grafana
       - python
+      - nginx
