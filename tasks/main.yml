@@ -54,16 +54,9 @@
       - doxygen
       - winehq-stable
       - gcc-mingw-w64-i686
-      - binutils-mips-linux-gnu
-      - binutils-arm-linux-gnueabi
       - libc6-dev-i386
-      - execstack
       - nodejs
-      - nasm
       - curl
-      - libcapstone3
-      - afl
-      - libfuzzer-4.0-dev
       - wireshark
       - kazam
       - handbrake
@@ -165,7 +158,6 @@
   become: true
   pip: "name={{item}}"
   with_items:
-      - pwntools
       - cstruct
       - requests
       - Flask
@@ -180,12 +172,9 @@
   docker_image:
       name: "{{item}}"
   with_items:
-      - webdevops/php-nginx
       - ubuntu:16.04
       - redis
       - mysql
       - mongo
-      - influxdb
-      - grafana/grafana
       - python
       - nginx
