@@ -71,6 +71,8 @@
       - powershell
       - php7.0-cli
       - sqlite3
+      - qemu-system-arm
+      - qemu-system-mips
 
 - name: Find Ruby Gem path
   become: true
