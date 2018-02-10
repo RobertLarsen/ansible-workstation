@@ -156,6 +156,12 @@
   command: gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver '<Shift><Alt>l'
   when: not screenlock.stdout == "'<Shift><Alt>l'"
 
+- name: Have two column workspaces
+  command: gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize 2
+
+- name: Have two row workspaces
+  command: gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize 2
+
 - name: Install python packages
   become: true
   pip: "name={{item}}"
