@@ -71,6 +71,8 @@
       - powershell
       - php7.0-cli
       - sqlite3
+      - qemu-system-arm
+      - qemu-system-mips
 
 - name: Find Ruby Gem path
   become: true
@@ -153,6 +155,12 @@
 - name: Lock screen with <Shift><Alt>l
   command: gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver '<Shift><Alt>l'
   when: not screenlock.stdout == "'<Shift><Alt>l'"
+
+- name: Have two column workspaces
+  command: gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize 2
+
+- name: Have two row workspaces
+  command: gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize 2
 
 - name: Install python packages
   become: true
