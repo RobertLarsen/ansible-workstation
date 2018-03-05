@@ -73,6 +73,8 @@
       - sqlite3
       - qemu-system-arm
       - qemu-system-mips
+      - pv
+      - scrot
 
 - name: Find Ruby Gem path
   become: true
