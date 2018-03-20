@@ -75,6 +75,7 @@
       - qemu-system-mips
       - pv
       - scrot
+      - nmap
 
 - name: Find Ruby Gem path
   become: true
