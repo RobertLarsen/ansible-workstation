@@ -73,9 +73,24 @@
       - sqlite3
       - qemu-system-arm
       - qemu-system-mips
+      - qemu-user-binfmt
+      - gcc-arm-linux-gnueabi
       - pv
       - scrot
       - nmap
+
+- name: Have qemu-binfmt directory
+  become: true
+  file:
+      path: "/etc/qemu-binfmt"
+      state: directory
+
+- name: Have library path for qemu arm
+  become: true
+  file:
+      src: /usr/arm-linux-gnueabi
+      dest: /etc/qemu-binfmt/arm
+      state: link
 
 - name: Find Ruby Gem path
   become: true
