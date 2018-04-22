@@ -78,6 +78,7 @@
       - pv
       - scrot
       - nmap
+      - ht
 
 - name: Have qemu-binfmt directory
   become: true
