@@ -180,6 +180,9 @@
 - name: Have two row workspaces
   command: gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize 2
 
+- name: Don't lock screen when inactive
+  command: gsettings set org.gnome.desktop.session idle-delay 0
+
 - name: Install python packages
   become: true
   pip: "name={{item}}"
