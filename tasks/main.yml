@@ -79,6 +79,7 @@
       - scrot
       - nmap
       - ht
+      - gcc-multilib
 
 - name: Have qemu-binfmt directory
   become: true
