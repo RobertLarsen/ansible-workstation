@@ -209,3 +209,19 @@
       - mongo
       - python
       - nginx
+
+- name: Have workstation scripts
+  git: 
+      repo: git@gogs.the-playground.dk:robert/Workstation.git
+      dest: "{{local_repositories_dir}}/Workstation"
+
+- name: Have workstation scripts in path
+  lineinfile:
+      dest: "{{ansible_user_dir}}/.bashrc"
+      line: "export PATH=$PATH:{{local_repositories_dir}}/Workstation"
+
+- name: Symlink password file
+  file:
+      src: "{{local_repositories_dir}}/Workstation/passwords.txt.gpg"
+      dest: "{{ansible_user_dir}}/.passwords.txt.gpg"
+      state: link
