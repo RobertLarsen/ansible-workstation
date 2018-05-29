@@ -80,6 +80,7 @@
       - nmap
       - ht
       - gcc-multilib
+      - libncurses5-dev
 
 - name: Have qemu-binfmt directory
   become: true
