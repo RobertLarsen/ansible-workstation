@@ -83,6 +83,11 @@
       - libncurses5-dev
       - socat
 
+- name: Add user to VirtualBox users group
+  user:
+      append: yes
+      groups: vboxusers
+
 - name: Have qemu-binfmt directory
   become: true
   file:
