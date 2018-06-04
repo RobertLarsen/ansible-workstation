@@ -85,7 +85,9 @@
       - ant
 
 - name: Add user to VirtualBox users group
+  become: true
   user:
+      name: "{{ansible_user}}"
       append: yes
       groups: vboxusers
 
