@@ -82,6 +82,7 @@
       - gcc-multilib
       - libncurses5-dev
       - socat
+      - ant
 
 - name: Have qemu-binfmt directory
   become: true
