@@ -235,3 +235,10 @@
       src: "{{local_repositories_dir}}/Workstation/passwords.txt.gpg"
       dest: "{{ansible_user_dir}}/.passwords.txt.gpg"
       state: link
+
+- name: Ignore lid close from UPower
+  become: true
+  lineinfile:
+      dest: /etc/UPower/UPower.conf
+      line: IgnoreLid=true
+  notify: Restart UPower

@@ -1,2 +1,7 @@
 ---
-# handlers file for RobertLarsen.workstation
+- name: Restart UPower
+  become: true
+  service:
+      name: upower
+      state: restarted
+
