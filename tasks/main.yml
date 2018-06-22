@@ -83,6 +83,7 @@
       - libncurses5-dev
       - socat
       - ant
+      - sysstat
 
 - name: Add user to VirtualBox users group
   become: true
