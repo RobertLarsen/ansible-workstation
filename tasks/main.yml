@@ -84,6 +84,9 @@
       - socat
       - ant
       - sysstat
+      - cmake
+      - cmake-qt-gui
+      - valgrind
 
 - name: Add user to VirtualBox users group
   become: true
