@@ -12,3 +12,4 @@ dependencies:
   - RobertLarsen.vim
   - RobertLarsen.docker
   - RobertLarsen.android
+  - RobertLarsen.multi-arch-dev
