@@ -4,4 +4,3 @@
   service:
       name: upower
       state: restarted
-
