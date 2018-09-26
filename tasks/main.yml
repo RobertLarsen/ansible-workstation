@@ -192,9 +192,11 @@
   when: not screenlock.stdout == "'<Shift><Alt>l'"
 
 - name: Have two column workspaces
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "16"
   command: gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize 2
 
 - name: Have two row workspaces
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "16"
   command: gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize 2
 
 - name: Don't lock screen when inactive
