@@ -202,8 +202,8 @@
 
 - name: Install python packages
   become: true
-  pip: "name={{item}}"
-  with_items:
+  pip:
+      name:
       - cstruct
       - requests
       - Flask

@@ -11,8 +11,7 @@
   become: true
   pip:
       executable: pip3
-      name: "{{item}}"
-  with_items:
+      name:
       - capstone
       - unicorn
       - keystone-engine
