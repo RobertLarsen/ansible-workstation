@@ -1,8 +1,8 @@
 ---
 - name: Install packages
   become: true
-  apt: name="{{item}}"
-  with_items:
+  apt:
+      name:
       - gdb
       - python3-pip
       - libcapstone3

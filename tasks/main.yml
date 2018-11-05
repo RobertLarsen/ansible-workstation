@@ -37,10 +37,8 @@
 - name: Install packages
   become: true
   apt:
-      name: "{{item}}"
-      state: present
       update_cache: true
-  with_items:
+      name:
       - zlib1g-dev
       - whois
       - dkms
