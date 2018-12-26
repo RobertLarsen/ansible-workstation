@@ -42,7 +42,7 @@
       - zlib1g-dev
       - whois
       - dkms
-      - virtualbox-5.2
+      - virtualbox-6.0
       - google-chrome-stable
       - jfsutils
       - openssh-server
