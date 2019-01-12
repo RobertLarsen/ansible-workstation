@@ -9,7 +9,6 @@
       - "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
       - "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
       - "https://keybase.io/hashicorp/pgp_keys.asc"
-      - "https://dl.winehq.org/wine-builds/Release.key"
       - "https://packages.microsoft.com/keys/microsoft.asc"
 
 - name: Add apt repositories
@@ -21,7 +20,6 @@
       - "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
       - "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib"
       - "deb [arch=amd64] https://deb.nodesource.com/node_6.x {{ansible_distribution_release}} main"
-      - "deb https://dl.winehq.org/wine-builds/ubuntu/ {{ansible_distribution_release}} main"
       - "deb [arch=amd64] https://packages.microsoft.com/ubuntu/{{ansible_distribution_version}}/prod {{ansible_distribution_release}} main"
 
 - name: Check if i386 is enabled
@@ -51,7 +49,6 @@
       - graphviz
       - ddd
       - doxygen
-      - winehq-stable
       - gcc-mingw-w64-i686
       - libc6-dev-i386
       - nodejs
