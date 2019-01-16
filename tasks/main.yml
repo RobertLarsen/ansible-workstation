@@ -120,7 +120,7 @@
 - name: Install vagrant
   become: true
   apt:
-      deb: "https://releases.hashicorp.com/vagrant/2.0.1/vagrant_2.0.1_x86_64.deb"
+      deb: "https://releases.hashicorp.com/vagrant/2.2.3/vagrant_2.2.3_x86_64.deb"
 
 - name: Set ssh dir permissions
   file:
