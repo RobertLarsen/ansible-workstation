@@ -83,6 +83,7 @@
       - cmake
       - cmake-qt-gui
       - valgrind
+      - mono-devel
 
 - name: Add user to VirtualBox users group
   become: true
