@@ -37,53 +37,53 @@
   apt:
       update_cache: true
       name:
-      - zlib1g-dev
-      - whois
-      - dkms
-      - virtualbox-6.0
-      - google-chrome-stable
-      - jfsutils
-      - openssh-server
+      - ant
+      - cmake
+      - cmake-qt-gui
       - cryptsetup-bin
-      - wipe
-      - graphviz
-      - ddd
-      - doxygen
-      - gcc-mingw-w64-i686
-      - libc6-dev-i386
-      - nodejs
       - curl
-      - wireshark
-      - kazam
-      - handbrake
+      - ddd
+      - dkms
+      - doxygen
+      - flake8
+      - gcc-arm-linux-gnueabi
+      - gcc-mingw-w64-i686
+      - gcc-multilib
       - gimp
-      - inkscape
+      - google-chrome-stable
       - gparted
-      - meld
+      - graphviz
+      - handbrake
+      - ht
+      - inkscape
+      - jfsutils
       - jq
-      - rubygems
-      - ruby-dev
-      - wkhtmltopdf
+      - kazam
+      - libc6-dev-i386
+      - libncurses5-dev
+      - meld
+      - mono-devel
+      - nmap
+      - nodejs
+      - openssh-server
       - powershell
-      - sqlite3
+      - pv
       - qemu-system-arm
       - qemu-system-mips
       - qemu-user-binfmt
-      - gcc-arm-linux-gnueabi
-      - pv
+      - ruby-dev
+      - rubygems
       - scrot
-      - nmap
-      - ht
-      - gcc-multilib
-      - libncurses5-dev
       - socat
-      - ant
+      - sqlite3
       - sysstat
-      - flake8
-      - cmake
-      - cmake-qt-gui
       - valgrind
-      - mono-devel
+      - virtualbox-6.0
+      - whois
+      - wipe
+      - wireshark
+      - wkhtmltopdf
+      - zlib1g-dev
 
 - name: Add user to VirtualBox users group
   become: true
