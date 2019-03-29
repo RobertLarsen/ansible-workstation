@@ -62,7 +62,6 @@
       - libc6-dev-i386
       - libncurses5-dev
       - meld
-      - mono-devel
       - nmap
       - nodejs
       - openssh-server
@@ -248,3 +247,6 @@
 
 - name: Install asciidoc and plugins
   import_tasks: asciidoc.yml
+
+- name: Install mono and tools
+  import_tasks: mono.yml

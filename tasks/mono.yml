@@ -1,0 +1,11 @@
+---
+- name: Install packages
+  become: true
+  apt:
+      update_cache: true
+      name:
+      - mono-devel
+      - monodevelop
+      - monodevelop-database
+      - monodevelop-nunit
+      - monodevelop-versioncontrol
