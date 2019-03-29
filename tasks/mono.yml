@@ -9,3 +9,4 @@
       - monodevelop-database
       - monodevelop-nunit
       - monodevelop-versioncontrol
+      - monodoc-browser
