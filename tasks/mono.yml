@@ -1,4 +1,17 @@
 ---
+- name: Add mono signing keys
+  become: true
+  apt_key:
+      keyserver: hkp://keyserver.ubuntu.com:80
+      id: 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+
+
+- name: Add apt repositories
+  become: true
+  apt_repository:
+      repo: "deb https://download.mono-project.com/repo/ubuntu vs-{{ansible_distribution_release}} main"
+
+
 - name: Install packages
   become: true
   apt:
