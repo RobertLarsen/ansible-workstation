@@ -19,7 +19,6 @@
       name:
       - mono-devel
       - monodevelop
-      - monodevelop-database
       - monodevelop-nunit
       - monodevelop-versioncontrol
       - monodoc-browser
