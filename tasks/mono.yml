@@ -1,4 +1,20 @@
 ---
+- name: Add Microsoft repository key
+  become: true
+  apt_key:
+      url: https://packages.microsoft.com/keys/microsoft.asc
+
+- name: Microsoft Visual Studio Code repository
+  become: true
+  apt_repository:
+      repo: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+
+- name: Microsoft Prod. repository for dotnet
+  become: true
+  apt_repository:
+      repo: "deb [arch=amd64] https://packages.microsoft.com/ubuntu/{{ansible_distribution_version}}/prod {{ansible_distribution_release}} main"
+
+
 - name: Add mono signing keys
   become: true
   apt_key:
@@ -22,3 +38,5 @@
       - monodevelop-nunit
       - monodevelop-versioncontrol
       - monodoc-browser
+      - packages-microsoft-prod.deb
+      - dotnet-sdk-2.2
