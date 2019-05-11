@@ -38,5 +38,5 @@
       - monodevelop-nunit
       - monodevelop-versioncontrol
       - monodoc-browser
-      - packages-microsoft-prod.deb
+      - packages-microsoft-prod
       - dotnet-sdk-2.2
