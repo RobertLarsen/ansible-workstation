@@ -83,6 +83,7 @@
       - wireshark
       - wkhtmltopdf
       - zlib1g-dev
+      - capstone-dev
 
 - name: Add user to VirtualBox users group
   become: true
