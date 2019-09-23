@@ -79,6 +79,7 @@
       - socat
       - sqlite3
       - sysstat
+      - tor
       - valgrind
       - virtualbox-6.0
       - whois
