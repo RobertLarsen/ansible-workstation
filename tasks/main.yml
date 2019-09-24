@@ -60,6 +60,7 @@
       - jfsutils
       - jq
       - kazam
+      - keepnote
       - libc6-dev-i386
       - libcapstone-dev
       - libicu-dev
