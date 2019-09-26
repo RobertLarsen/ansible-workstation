@@ -11,6 +11,12 @@
       - "https://keybase.io/hashicorp/pgp_keys.asc"
       - "https://packages.microsoft.com/keys/microsoft.asc"
 
+- name: Add signing key for bpf tools
+  become: true
+  apt_key:
+      id: 4052245BD4284CDD
+      keyserver: keyserver.ubuntu.com
+
 - name: Add apt repositories
   become: true
   apt_repository:
@@ -21,6 +27,7 @@
       - "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib"
       - "deb [arch=amd64] https://deb.nodesource.com/node_6.x {{ansible_distribution_release}} main"
       - "deb [arch=amd64] https://packages.microsoft.com/ubuntu/{{ansible_distribution_version}}/prod {{ansible_distribution_release}} main"
+      - "deb [arch=amd64] https://repo.iovisor.org/apt/{{ansible_distribution_release}} {{ansible_distribution_release}} main"
 
 - name: Check if i386 is enabled
   shell: dpkg --print-foreign-architectures | grep i386
@@ -38,6 +45,7 @@
       update_cache: true
       name:
       - ant
+      - bcc-tools
       - cmake
       - cmake-qt-gui
       - cryptsetup-bin
@@ -71,6 +79,7 @@
       - openssh-server
       - powershell
       - pv
+      - python-bcc
       - qemu-system-arm
       - qemu-system-mips
       - qemu-user-binfmt
@@ -211,6 +220,7 @@
       - Flask
       - redis
       - pymongo
+      - z3-solver
 
 - name: Install gdb and plugins
   import_tasks: gdb.yml
