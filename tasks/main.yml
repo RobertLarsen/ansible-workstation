@@ -92,6 +92,7 @@
       - tor
       - valgrind
       - virtualbox-6.0
+      - vlc
       - whois
       - wipe
       - wireshark
