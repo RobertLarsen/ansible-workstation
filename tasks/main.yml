@@ -90,6 +90,7 @@
       - sqlite3
       - sysstat
       - tor
+      - tshark
       - valgrind
       - virtualbox-6.0
       - vlc
