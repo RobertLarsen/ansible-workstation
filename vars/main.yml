@@ -1,2 +1,2 @@
 ---
-# vars file for RobertLarsen.workstation
+vagrant_version: "2.2.6"
