@@ -73,6 +73,7 @@
       - libcapstone-dev
       - libicu-dev
       - libncurses5-dev
+      - mc
       - meld
       - nmap
       - nodejs
@@ -216,7 +217,9 @@
 - name: Install python packages
   become: true
   pip:
+      executable: pip3
       name:
+      - behave
       - cstruct
       - requests
       - Flask
