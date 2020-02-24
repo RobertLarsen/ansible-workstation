@@ -74,6 +74,7 @@
       - libicu-dev
       - libncurses5-dev
       - meld
+      - net-tools
       - nmap
       - nodejs
       - openssh-server
