@@ -73,6 +73,8 @@
       - libcapstone-dev
       - libicu-dev
       - libncurses5-dev
+      - libreoffice-writer
+      - libreoffice-calc
       - mc
       - meld
       - net-tools
