@@ -111,6 +111,13 @@
       append: yes
       groups: vboxusers
 
+- name: Add user to dialout users group
+  become: true
+  user:
+      name: "{{ansible_user}}"
+      append: yes
+      groups: dialout
+
 - name: Have qemu-binfmt directory
   become: true
   file:
