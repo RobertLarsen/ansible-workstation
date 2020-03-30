@@ -49,6 +49,7 @@
       - cmake
       - cmake-qt-gui
       - cryptsetup-bin
+      - cscope
       - curl
       - ddd
       - dkms
