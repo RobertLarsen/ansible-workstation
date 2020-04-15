@@ -59,6 +59,7 @@
       - gcc-mingw-w64-i686
       - gcc-multilib
       - gimp
+      - gitk
       - google-chrome-stable
       - gparted
       - gperf
