@@ -120,6 +120,14 @@
       append: yes
       groups: dialout
 
+
+- name: Add user to kvm users group
+  become: true
+  user:
+      name: "{{ansible_user}}"
+      append: yes
+      groups: kvm
+
 - name: Have qemu-binfmt directory
   become: true
   file:
