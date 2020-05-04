@@ -290,3 +290,14 @@
 
 - name: Install mono and tools
   import_tasks: mono.yml
+
+- name: Install Zoom Meeting public key
+  become: true
+  apt_key:
+      url: https://zoom.us/linux/download/pubkey
+      id: 396060CADD8A75220BFCB369B903BF1861A7C71D
+
+- name: Install Zoom Meeting
+  become: true
+  apt:
+      deb: https://zoom.us/client/latest/zoom_amd64.deb
