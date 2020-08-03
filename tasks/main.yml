@@ -81,7 +81,6 @@
       - meld
       - net-tools
       - nmap
-      - nodejs
       - openssh-server
       - powershell
       - pv
