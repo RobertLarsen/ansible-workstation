@@ -265,9 +265,6 @@
 - name: Install asciidoc and plugins
   import_tasks: asciidoc.yml
 
-- name: Install mono and tools
-  import_tasks: mono.yml
-
 - name: Install Zoom Meeting public key
   become: true
   apt_key:
