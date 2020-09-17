@@ -235,18 +235,6 @@
 - name: Install gdb and plugins
   import_tasks: gdb.yml
 
-- name: Have useful docker images
-  become: true
-  docker_image:
-      name: "{{item}}"
-  with_items:
-      - ubuntu:16.04
-      - redis
-      - mysql
-      - mongo
-      - python
-      - nginx
-
 - name: Have workstation scripts
   git: 
       repo: git@gogs.the-playground.dk:robert/Workstation.git
