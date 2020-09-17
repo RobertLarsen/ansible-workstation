@@ -204,9 +204,13 @@
   command: gsettings get org.gnome.settings-daemon.plugins.media-keys screensaver
   register: screenlock
 
-- name: Lock screen with <Shift><Alt>l
+- name: Lock screen with <Shift><Alt>l Ubuntu < 20
   command: gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver '<Shift><Alt>l'
-  when: not screenlock.stdout == "'<Shift><Alt>l'"
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version|int < 20 and not screenlock.stdout == "'<Shift><Alt>l'"
+
+- name: Lock screen with <Shift><Alt>l >= 20
+  command: gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver '["<Shift><Alt>l"]'
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version|int >= 20 and not screenlock.stdout == "['<Shift><Alt>l']"
 
 - name: Have two column workspaces
   when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "16"
