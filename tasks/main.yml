@@ -245,6 +245,8 @@
       - redis
       - pymongo
       - z3-solver
+      - riposte
+      - snakeviz
 
 - name: Install gdb and plugins
   import_tasks: gdb.yml
