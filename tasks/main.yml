@@ -7,15 +7,8 @@
   with_items:
       - "https://dl.google.com/linux/linux_signing_key.pub"
       - "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
-      - "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
       - "https://keybase.io/hashicorp/pgp_keys.asc"
       - "https://packages.microsoft.com/keys/microsoft.asc"
-
-- name: Add signing key for bpf tools
-  become: true
-  apt_key:
-      id: 4052245BD4284CDD
-      keyserver: keyserver.ubuntu.com
 
 - name: Add apt repositories
   become: true
@@ -25,9 +18,7 @@
   with_items:
       - "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
       - "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib"
-      - "deb [arch=amd64] https://deb.nodesource.com/node_6.x {{ansible_distribution_release}} main"
       - "deb [arch=amd64] https://packages.microsoft.com/ubuntu/{{ansible_distribution_version}}/prod {{ansible_distribution_release}} main"
-      - "deb [arch=amd64] https://repo.iovisor.org/apt/{{ansible_distribution_release}} {{ansible_distribution_release}} main"
 
 - name: Check if i386 is enabled
   shell: dpkg --print-foreign-architectures | grep i386
@@ -45,7 +36,6 @@
       update_cache: true
       name:
       - ant
-      - bcc-tools
       - cmake
       - cmake-qt-gui
       - cryptsetup-bin
@@ -70,7 +60,6 @@
       - jfsutils
       - jq
       - kazam
-      - keepnote
       - libc6-dev-i386
       - libcapstone-dev
       - libicu-dev
@@ -81,10 +70,7 @@
       - meld
       - net-tools
       - nmap
-      - openssh-server
-      - powershell
       - pv
-      - python-bcc
       - qemu-system-arm
       - qemu-system-mips
       - qemu-user-binfmt
@@ -218,9 +204,13 @@
   command: gsettings get org.gnome.settings-daemon.plugins.media-keys screensaver
   register: screenlock
 
-- name: Lock screen with <Shift><Alt>l
+- name: Lock screen with <Shift><Alt>l Ubuntu < 20
   command: gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver '<Shift><Alt>l'
-  when: not screenlock.stdout == "'<Shift><Alt>l'"
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version|int < 20 and not screenlock.stdout == "'<Shift><Alt>l'"
+
+- name: Lock screen with <Shift><Alt>l >= 20
+  command: gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver '["<Shift><Alt>l"]'
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version|int >= 20 and not screenlock.stdout == "['<Shift><Alt>l']"
 
 - name: Have two column workspaces
   when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "16"
@@ -251,18 +241,6 @@
 - name: Install gdb and plugins
   import_tasks: gdb.yml
 
-- name: Have useful docker images
-  become: true
-  docker_image:
-      name: "{{item}}"
-  with_items:
-      - ubuntu:16.04
-      - redis
-      - mysql
-      - mongo
-      - python
-      - nginx
-
 - name: Have workstation scripts
   git: 
       repo: git@gogs.the-playground.dk:robert/Workstation.git
@@ -288,9 +266,6 @@
 
 - name: Install asciidoc and plugins
   import_tasks: asciidoc.yml
-
-- name: Install mono and tools
-  import_tasks: mono.yml
 
 - name: Install Zoom Meeting public key
   become: true
