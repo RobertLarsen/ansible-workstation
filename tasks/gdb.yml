@@ -4,6 +4,7 @@
   apt:
       name:
       - gdb
+      - gdb-multiarch
       - python3-pip
       - libcapstone3
 
