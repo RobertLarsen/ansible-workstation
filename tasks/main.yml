@@ -69,6 +69,7 @@
       - mc
       - meld
       - net-tools
+      - ninja-build
       - nmap
       - pv
       - qemu-system-arm
