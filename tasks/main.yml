@@ -30,6 +30,12 @@
   command: dpkg --add-architecture i386
   when: result_i386_check.rc == 1
 
+- name: Don't have libjpeg-turbo
+  become: true
+  apt:
+      name: libjpeg-turbo8-dev
+      state: absent
+
 - name: Install packages
   become: true
   apt:
@@ -46,9 +52,7 @@
       - doxygen
       - entr
       - flake8
-      - gcc-arm-linux-gnueabi
       - gcc-mingw-w64-i686
-      - gcc-multilib
       - gimp
       - gitk
       - google-chrome-stable
