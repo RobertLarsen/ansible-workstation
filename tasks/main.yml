@@ -61,6 +61,7 @@
       - graphviz
       - handbrake
       - ht
+      - htop
       - inkscape
       - jfsutils
       - jq
@@ -74,6 +75,7 @@
       - libreoffice-calc
       - mc
       - meld
+      - mlocate
       - net-tools
       - ninja-build
       - nmap
