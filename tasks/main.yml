@@ -200,15 +200,10 @@
       name: user.name
       value: Robert Larsen
 
-- name: Have my dotfiles
-  git: 
-      repo: https://github.com/RobertLarsen/dotfiles.git
-      dest: "{{local_repositories_dir}}/dotfiles"
-
-- name: Load local bash settings
-  lineinfile:
-      dest: "{{ansible_user_dir}}/.bashrc"
-      line: ". {{local_repositories_dir}}/dotfiles/bashrc"
+- name: Developer functions in bash
+  copy:
+      src: 01-developer.conf
+      dest: "{{ user_bashrcd }}"
 
 - name: Check screen lock shortcut
   command: gsettings get org.gnome.settings-daemon.plugins.media-keys screensaver
