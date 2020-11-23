@@ -63,7 +63,7 @@
       - ht
       - htop
       - inkscape
-      - ipython
+      - ipython3
       - jfsutils
       - jq
       - kazam
