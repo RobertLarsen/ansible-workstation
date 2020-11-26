@@ -81,9 +81,6 @@
       - ninja-build
       - nmap
       - pv
-      - qemu-system-arm
-      - qemu-system-mips
-      - qemu-user-binfmt
       - ruby-dev
       - rubygems
       - scrot
