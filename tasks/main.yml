@@ -42,6 +42,7 @@
       update_cache: true
       name:
       - ant
+      - asciinema
       - cmake
       - cmake-qt-gui
       - cryptsetup-bin
@@ -239,6 +240,8 @@
       - z3-solver
       - riposte
       - snakeviz
+      - sphinx
+      - sphinxcontrib.asciinema
 
 - name: Install gdb and plugins
   import_tasks: gdb.yml
