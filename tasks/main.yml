@@ -10,6 +10,12 @@
       - "https://keybase.io/hashicorp/pgp_keys.asc"
       - "https://packages.microsoft.com/keys/microsoft.asc"
 
+- name: Signing key for debug symbol packages
+  become: true
+  apt_key:
+      keyserver: keyserver.ubuntu.com
+      id: C8CAB6595FDFF622
+
 - name: Add apt repositories
   become: true
   apt_repository:
@@ -19,6 +25,9 @@
       - "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
       - "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib"
       - "deb [arch=amd64] https://packages.microsoft.com/ubuntu/{{ansible_distribution_version}}/prod {{ansible_distribution_release}} main"
+      - "deb http://ddebs.ubuntu.com/ {{ ansible_distribution_release }}      main restricted universe multiverse"
+      - "deb http://ddebs.ubuntu.com/ {{ ansible_distribution_release }}-updates  main restricted universe multiverse"
+      - "deb http://ddebs.ubuntu.com/ {{ ansible_distribution_release }}-proposed main restricted universe multiverse"
 
 - name: Check if i386 is enabled
   shell: dpkg --print-foreign-architectures | grep i386
